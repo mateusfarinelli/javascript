@@ -1,0 +1,35 @@
+*{
+  font-family: Arial;
+  font-size: 26px;
+  font-weight: bold;
+  color: #FFF
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(100, 1fr);
+  grid-template-rows: 1fr 3fr 1fr;
+}
+
+header {
+  grid-column: span 100;
+  background: #ff0000;
+  display: flex;
+  flex-direction: row;
+}
+
+main {
+  grid-column: span 85;
+  color: #000
+}
+
+aside {
+  grid-column: span 15;
+  background-color: #888;
+}
+
+footer {
+  grid-column: span 100;
+  background: #ff0000
+}
+
+
