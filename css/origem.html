@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <title>Origem CSS: Externo, Interno e Inline</title>
     <style>
-        /* ... */
+        body{
+            background-color: aquamarine; /*Extilização Interna*/
+        }
+        /*
+            Apesar de permitir CSS Inline usando o seletor <style> ou Interno usando a tag <style>
+            Entretanto é boa pratica e altamente utilziado a estilziação externa, utilizando um 
+            arquivo ".css" e o link dele nos arquivos HTML, como feito abaixo.
+        */
     </style>
+    <link rel="stylesheet" href="./css/externo.css"> <!--Estilização Externa-->
 </head>
 
 <body>
-    <h1>E agora?</h1>
+    <h1 style="background-color: coral;">E agora?</h1> <!--Estilização Inline-->
 </body>
 
 </html>
+

@@ -5,9 +5,14 @@
     <meta charset="UTF-8">
     <title>Altura e Largura</title>
     <style>
+        html {
+            height: 100%;
+        }
         body {
             font-size: 40px;
             background-color: coral;
+            height: 100%;
+            margin: 0;
         }
 
         div {
@@ -17,12 +22,51 @@
         span {
             background-color: dodgerblue;
         }
+        span, div {
+            width: 50%; /*Só a div considera essa largura */
+            height: 50%; /* Por padrão as tags HTML e body tem a altura
+                            igual a soma das alturas de todos os elementos
+                            do documento, ou seja, se não setarmos as tags
+                            HTML e body com height 100%, o tamanho delas serão
+                            igual a soma dos elementos presentes, por isso
+                            esse atributo não ira resultar em mudanças
+                            visiveis.
+
+                            Do mesmo modo o padrão para qualquer tag,
+                            não inline é ocupar 100% da largura do documento
+                            logo a div foi redimensionada com o width 50%.
+
+                            Note que como span é um elemento de padrão
+                            display inline, e não há alteração desse
+                            atributo, o mesmo não sofre mudança no tamanho
+                            do valor de height nem de width.
+
+                            Para isso é preciso mudar o display do span
+
+                            Se usarmos um inline-block sem colocarmos os
+                            elementos HTML div e span na mesma linha
+                            no documento html, nada ocorrerá, por conta
+                            de uma formatação do HTML que inserie um espaço
+                            em branco. Vou manter o inline-block e remover
+                            o espaço para fins didaticos
+
+                            Outro ponto muito importante é saber que os
+                            positions de um elementos influenciaram 
+                            no tamanho dos elementos, mas por padrão
+                            como dito antes, a altura do documento será
+                            sempre a soma das alturas de seus elementos
+                            e a largura sempre será 100% (para os
+                            elementos que adimitem isso)
+                         */
+            display: inline-block;
+        }
     </style>
 </head>
 
 <body>
-    <div>Título</div>
-    <span>Subtítulo</span>
+    <!--Removendo espaço em branco gerado pela quebra de linha entre
+    o fim de um tag e o começo de outra-->
+    <div>Título</div><span>Subtítulo</span>
 </body>
 
 </html>

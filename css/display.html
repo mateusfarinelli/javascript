@@ -6,6 +6,27 @@
     <title>Display</title>
     <style>
         /* ... */
+        body {
+            font-size: 40px;
+            color: #fff;
+            background-color: coral;
+        }
+        ul { padding: 0;}
+        div{ background-color: seagreen; }
+        span { background-color: dodgerblue; }
+        li { background-color: purple; }
+
+        div, span, li {
+            width: 50%; /* Elemento span não pega, pois seu display padrão é inline, e inline nao aceita essas formatações */
+            width: 200px; /* Elemento span não pega, pois seu display padrão é inline, e inline nao aceita essas formatações */
+            height: 80px; /* Elemento span não pega, pois seu display padrão é inline, e inline nao aceita essas formatações */
+            padding-top: 30px; /* Acontece um overflow, por conta da div usar diplay block e span o display inline */
+            display: inline; /* Acontece overflow, por conta do display, além de que width e height não são atribuidos, gerando warnings */
+            display: block; /* Span recebe formatação ficando todas os elementos iguais */
+            display: inline-block; /* Formata os blocos em uma mesma linha, é a junção dos dois displays block e inline */
+            
+        }
+
     </style>
 </head>
 

@@ -7,11 +7,29 @@
     <style>
       /*corpo de um código css*/
       .selector  { /*começando com o seletor de classe, tag, id e etc*/ 
-        color: #FFF; /*Posteriormente os atributos podendo conter um valor fixo */
-        font-size: 30px; /*Numérico */
+        color: #FFF; /*Posteriormente os atributos podendo conter um valor do tipo hexadecimal*/
+        font-size: 30px; /*Unidade associada a números */
         text-align: center; /*Pré definido */
-        border: solid 5px navy;  /* ou Multiplos valores */
+        /*Multiplos valores*/
+        border: solid 5px #DDD;  /* short hand property */
+        font-family: Helvetica, monospace; /*alternancia*/
+        /*funções*/
+        width: calc(100% - 40px); /*uando a função calc para detemrinar a largura do seletor*/
+        background-color: rgb(0, 0, 0); /*usando padrão rgb*/
       }
+      /*Pseudo-classe*/
+      .selector:hover{ /*onde usamos ":" para chamar a pseudo-classe do seletor*/
+        background-color: orangered;
+      }
+      /*Pseudo-elemento*/
+      .selector::first-letter{/*usamos "::" para chamar o pseudo elemento do seletor*/
+        font-size: 60px;
+        font-weight: bold; /*classe para mudar o tamanho da fonte*/
+      }
+      /*
+        É bom saber que CSS utilzi padrão de escrita dash-case, separando as palavras por
+        hifer, com exemplo "font-size".
+        */
     </style>
 </head>
 

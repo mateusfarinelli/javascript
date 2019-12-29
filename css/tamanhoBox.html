@@ -7,6 +7,30 @@
         body {
             font-size: 45px;
         }
+        div {
+            background-color: deepskyblue;
+            width: 100%;
+            height: 300px;
+            padding: 100px; /* Por conta do padding, a largura ultrapassa o 100% gerando um scroll
+                               horizontal.
+                            */
+            border: solid 20px; /* O mesmo comportamento do padding acontece aqui, pois o tamanho do block
+                                   fica maior que o 100% de width
+                                */
+            box-sizing: border-box; /* Utilizamos esse atributo para fixar o box-sizing quando utilizamos
+                                       as %, fazendo com que tudo da borda pra dentro fique dentro dos 100%
+                                       setados.
+                                       
+                                       Por padrão o tipo de box-sizing é content-box, que faz com que o
+                                       conteudo ocupe 100% do espaço, sem contar o padding e a borda, quando
+                                       adicionado esas ultimas e consequentimente ultrapassando o 100%, ja
+                                       que seus tamanhos não são considerados e sim só o tamanho do conteúdo
+
+                                       Para que o box-sizing seja aplicado a todos os elementos, é preciso
+                                       utilizar o seletor global "*", pois por padrão o box-sozing não é
+                                       um atributo passado por herança
+                                    */
+        }
     </style>
 </head>
 <body>

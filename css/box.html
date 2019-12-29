@@ -4,8 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Box Model</title>
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
     <style>
-        /* ... */
+        /* 
+            Entre conteudo e a borda temos o padding;
+            Entre um componente e outro temos o margin
+
+            Alguns conhecimentos para padding e margin:
+            padding: a; -> Aplica o valor de A para os 4 lados igualmente
+            padding: a b; -> Aplica o valor de A para o eixo vertical (cima e baixo) e b para o eixo horinzontal (direita e esquerda)
+            padding: a b c d; Aplica os valores a,b,c,d em sentido horario começando por cima
+        */
+        /*body {
+            font-family: 'Ubuntu', sans-serif;
+            font-size: 40px;
+            border: solid 3px;
+            padding: 50px;
+            margin: 10px 100px 150px 200px;
+        }*/
+
+        body{ font-size: 80px; margin: 0;}
+        .c1{background-color: orange;}
+        .c2{background-color: skyblue;}
+        .c3{background-color: tomato;}
+
+        div {
+            float: left; /* Quando aplicamos essa propriedade ele perde o conceito de bloco*/
+            padding-top: 100px;
+            padding: 10px 50px 100px 150px; /*É importante ressaltar que o bloco esta contendo largura = 50px+ 150px + largura do conteudo, equivalente para a altura do bloco */
+            padding: 100px 50px;
+            margin: 0px 20px; /* A margem entre os elementos é somada, ou seja entre os elementos 1/2 e 2/3 existe 40px de margem por conta de cada uma ter 20px de margin lateral*/
+            border: 15px solid;
+        }
+
     </style>
 </head>
 

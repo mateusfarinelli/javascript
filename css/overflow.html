@@ -9,6 +9,15 @@
             height: 100px;
             width: 260px;
             border: solid 3px;
+            /* Nesse caso o que gera o overflow é o tamanho fixo da div, e para reoslver
+            podemos utilziar do paramtro overflow e overflow-eixo (x ou y), e assim podemos
+            fazer com que a div ganhe um scroll, ou esconda o overflow entre outras saidas
+            que veremos a seguir
+            */
+            overflow: hidden; /* Esconde todo o overflow */
+            overflow: scroll; /* Da ao elemento a possibilidade de scroll nos sentidos em que o overflow acontece */
+            overflow-x: scroll; /* Permite somente o scroll no sentido do eixo "x" (horizontal) */
+            overflow-y: hidden; /* Faz com que o overflow no eixo "y" (veritical) seja escondido */
         }
     </style>
 </head>

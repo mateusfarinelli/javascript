@@ -2,22 +2,41 @@
 <html>
 
 <head>
-    <meta charset="UTF-8">
-    <title>Especificidade CSS</title>
-    <style>
-        /* https://specificity.keegan.st/ */
-    </style>
+  <meta charset="UTF-8">
+  <title>Especificidade CSS</title>
+  <style>
+    /* https://specificity.keegan.st/ */
+
+    /*
+      A hirarquia da especifidade dentro do CSS é:
+
+      1. Inline
+      2. ID
+      3. Classe, Pseudo-Classe e Atributos
+      4. Elemento e Pseudo-Elementos
+
+    */
+
+    body{font-size: 40px;}
+
+    div {background-color: #00B; color: #FFF} /* *Especifidade 1 elemento */
+    div[wm-cor] {background-color: darkorange;} /* *Especifidade 11 elemento[atributo] */
+    div:hover {background-color: purple;} /* *Especifidade 11 elemento:pseudo-classe, entretanto se colocarmos essa chamada acima da chamada element[atributo] ela não ira funcionar para os elementos que contenham o atributo pro conta da regra de sobreposição em caso de empate de especificidade */
+    div.estilo {background-color: green;} /* *Especifidade 11 elemento.classe, acontece o mesmo para esse caso, ele ira sobrepor o hover por conta do empate */
+    #unico1, #unico2 {background-color: #000;} /* * Especifidade 100 * */
+    #unico1:hover {background-color: purple;} /* * Especifidade 110 * */
+  </style>
 </head>
 
 <body>
-    <div id="unico1" class="estilo">
-        #unico1 vs .estilo vs inline
-    </div>
-    <div id="unico2" class="estilo">#unico2 vs .estilo</div>
-    <div class="estilo" wm-cor>.estilo vs wm-cor</div>
-    <div wm-cor>wm-cor</div>
-    <div class="estilo">.estilo</div>
-    <div>elemento</div>
+  <div id="unico1" class="estilo" style="background-color: red;"> <!--Style in line especifidade 1000-->
+    #unico1 vs .estilo vs inline
+  </div>
+  <div id="unico2" class="estilo">#unico2 vs .estilo</div>
+  <div class="estilo" wm-cor>.estilo vs wm-cor</div>
+  <div wm-cor>wm-cor</div>
+  <div class="estilo">.estilo</div>
+  <div>elemento</div>
 </body>
 
 </html>
