@@ -5,13 +5,64 @@
     <meta charset="UTF-8">
     <title>Unidades #01</title>
     <style>
-        /* ... */
+        /* 
+          Dimensões absolutas:
+            São unidades com valores absolutos, ou seja, é aquela unidade que não depende de nenhum outro fator
+            dentro do documento, alguns exempls são pixel, centimetros, milimetros.
+            O mais caumum dentro dessas dimensões são os pixels, já que centimetros e milimetros são rotineira
+            mente utilziado para impressões. É importante ressaltar que um pixel dentro do CSS/HTML não é igual
+            a 1 pixel fisico do seu monitor, ele passa por uma normalização que leva como base a densidade de
+            pixels da sua tela e etc.
+
+            Viewport:
+            Viewport é o tamanho visivel da página, ou seja, se vcê diminui ou aumenta o tamanho
+            da janela do navegador, essa unidade muda, logo ela é relativa ao tamanho da janela
+            do navegador.
+            As unidades que temos para essa dimensão são:
+            vh: tamanho da altura da página (o calculo do vh é feito em vh/100, portanto 1vh é 1% do viewport)
+            vw: tamanho da largura da página (o conceito utilziando no vh se aplica aqui)
+            vmin: menor dimensão da página (o tamanho da pagina afeta essa unidade, de forma que por algumas vezes a altura vai ser o vmin, outras a largura, vai depender de como a página está aberta)
+            vmax: maior dimensão da página (o mesmo relato se aplica aqui)
+            
+            Font:
+            Podemos colocar as fontes com unidades absolutas como px, mas também podemos colocar
+            em unidades de tamanho relativos, sendo:
+            rem: relativo ao elemento raiz/principal da aplicação
+            em: relativo ao elemento pai do elemento estilizado.
+
+
+         */
+         body{
+           font-size: 100px;
+         }
+
+         .unidades-absolutas {
+           width: 50vw;
+           height: 50vh;
+           background-color: #CDF;
+         }
+         .unidades-relativas{
+           width: 10000vmax;
+           height: 76vh;
+           background-color: #FDC;
+           font-size: 50px;
+         }
+
+         p.font {
+           font-size: 0.5em;
+         }
+         .unidades-relativas p {
+          font-size: 0.5em;
+         }
     </style>
 </head>
 
 <body>
+  <p class="font">Novo teste</p>
     <div class="unidades-absolutas">Opa!</div>
-    <div class="unidades-relativas">Epa!</div>
+    <div class="unidades-relativas">
+      <p>Epa!</p>
+    </div>
 </body>
 
 </html>

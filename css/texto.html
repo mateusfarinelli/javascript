@@ -11,10 +11,85 @@
             margin: 0;
         }
 
+        html {
+          font-size: 30px; /* Verificando funcioanmento da unidade rem */
+        }
+
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
+            font-size: 28px; /* verificando o funcionamento da unidade relativa em*/
+        }
+
+        p {
+          /* Valores padrões */
+          font-size: 1em;    /* Para todos esses valores, obtemos uma fonte do tamanho  */
+          font-size: 100%;   /* padrão utilziado pelo browser. */
+          font-size: 16px;   /* Note bem, isso desde que o padrão do documento html não */
+          font-size: 12pt;   /* tenha sido modificado como veremos abaixo */
+
+          /* unidades absolutas */
+          font-size: 100px;
+          font-size: 72pt;
+          font-size: 1in;
+
+          /* unidades relativas */
+          font-size: 2.2em; /* a unidade em sempre vai pegar a referencia de tamanho mais próxima
+                               como não temos nada por enquanto na div que seria a referencia mais
+                               proxima no momento, então ele recorrerá elemento mais proximo do pai
+                            que no caso é o html, utiliznado o valor padrão do browser.
+
+                            Agora vamos aplicar o valor de 28px na tag div e veja que o usando a 
+                            ferramenta de desenvolvedor do browser veremos que o tamanho
+                            do <p> dentro da div será de 2.2*28 algo em torno de 61px;*/
+
+          font-size: 2.2rem; /* vamos ver agora o comportamento da unidade rem, que sempre vai buscar
+                              a referencia na raiz ou seja no elemento HTML, que gora está mostrando
+                              32.5px no devtool do browser.
+
+                              Veja acima que iremos colocar 30px de font-size para a tag HTML,
+                              e o mesmo vai mostrar no devtool um tamanho de 66px */
+          font-size: 50vh;
+          font-size: 2vw; /* Da mesma forma podemos trabalhar utilizando as unidades de viewport,
+                              que serão calculadas com base no tamanho da janela do navegador. */
+          /* Font-family */
+          font-family: monospace; /* Browser coloca o padrão de fonte monospace instalado nele */
+          font-family: Georgia, serif; /* Nesse metodo colocamos uma fonte caso ela não esteja instalada
+                                        no browser, ele pega a próxima depois da virgula, que no caso
+                                        indica ao broser para pegar o padrão de font serifada, ou seja
+                                        com aquelas "pontinhas" nos cantos das letras como no "l" */
+          font-family: Verdana, sans-serif; /* Diferente da de cima somente pelo formato padrão sans-sefir
+                                              que são fontes sem serif. */
+          font-family: 'Indie Flower', cursive; /* Nessa caso fez-se o import da font Indie flower usando
+                                                o CDN da google, e caso não estivesse instalado o browser
+                                                colocaria o padrão de fonte cursiva existente nele*/
+          /* Estilos da fonte */
+          font-weight: 900; /* Peso da fonte, podendo ser numeros ou valores pré-fiados*/
+          font-style: italic;
+          text-transform: uppercase; /* Transforma o texto */
+          text-decoration: overline underline line-through; /* Para adicionar linhas ao texto */
+          word-spacing: 10px; /* Espaço entre palavras */
+          letter-spacing: 50px; /* Espaço entre letras */
+          line-height: 2.5em; /* Tamanho da linha, baseado no tamanho da fonte para em */
+          text-align: center; /* Alinhamento do texto */
+        }
+        
+        /* Vamos criar um botão com o link do google */
+        .botao {
+          font-size: 28px;
+          text-decoration: none;
+          padding: 10px 30px;
+          border-radius: 25px;
+        }
+
+        .destaque {
+          color: #FFF;
+          background: purple;
+          box-shadow: 2px 2px 1px 1px #000;
+        }
+        .destaque:active {
+          box-shadow: none;
         }
     </style>
 </head>
