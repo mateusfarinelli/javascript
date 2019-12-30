@@ -6,11 +6,57 @@
     <title>Cores</title>
     <style>
         /* 
-            https://www.w3schools.com/colors/colors_hsl.asp
+            Links que auxiliam com as cores e as funções que sao utilzidas para criar as cores
+
+            https://www.w3schools.com/colors/colors_hsl.asp 
             
-            https://coolors.co/
-            http://paletton.com/
+            https://coolors.co/ -> 
+
+            http://paletton.com/ ->
+            
+            HSL -> Heal, Saturation e Light
+            Onde heal é a cor que vai de 0 a 359, saturation é a escala de cinza indo de 0 a 100, sendo 0 o cinza,
+            100 a cor viva e 50 a cor neutra, e por fim Light é luz, ou a variação entre preto e
+            branco, sendo 0 o preto absoluto e 100 o branco absoluto.
+
+            HSLA
+            O mesmo que o HSL mas com o digito que informa transparencia indo de 0 a 100
+
+            RGB -> Redg Green Blue
+            Trabalha as 3 cores primarias (Red, Green e Blue), onde o código é feito
+            pela sintaxe rgb (000, 000, 000), onde cada conjunto de 3 elementos varia entre
+            0 e 255, sendo o codigo 000 000 000 preto absoluto e 255 255 255 branco absoluto
+
+            RGBA
+            Segue o mesmo esquema do RGB, entretanto adiciona mais um digito que varia entre
+            0 e 1, para indicar a transparencia, onde 0 é totalmente transparente e 1 é totalmente
+            sem transparencia
+
+            Cores pré-definidas
+            São cores já pré-definidas, que basta chamar seu valor pelo nome, como red, blue, green
+            black e etc.
+
+            Hexa-decimal
+            São cores definidas pelo código do tipo #AABBCC, onde existem 3 pares de caracteres hexa-
+            decimais, indo de 0 a F, onde 00 é o preto absoluto e FF é o branco absoluto. Nesse padrão
+            podemos ainda abreviar o código, caso haja repetição de caraceretes, como em #FCD que é
+            igual a #FFCCDD.Basta ter uma repetição de caracteres que podemos abreviar o código
+            usando apenas 3 caracteres hexa-decimais. Lembrando que os pares, representam
+            báiscamente as cores primarias, na ordem RGB. Ainda em hexa-decimal, podemos adicionar
+            uma transparencia ao final do código utilizando os mesmos caracteres, dessa forma
+            o código passa a ter 8 caracteres, sendo os dois ultimores referentes a essa opacidade
+            onde 00 é totalmente transparente (não apresenta a cor) e FF é totalmente opaco (sem transparencia)
+
+                       
         */
+        body {
+            background-color: green; /* Cores pré-definidas */
+            background-color: #ffffff; /* Combinação feita na escala hexa-decimal */
+            background-color: rgb(55, 110, 220);
+            background-color: rgba(150, 80, 160, 0.2);
+            background-color: hsl(299, 58%, 50%);
+            background-color: hsla(299, 58%, 50%, 0.5);
+        }
     </style>
 </head>
 
