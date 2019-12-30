@@ -8,6 +8,165 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <style>
         /* ... */
+        * {
+          box-sizing: border-box; /* Adicionado na resposta */
+        }
+
+        body {
+          margin: 0; /*Adicionado na resposta */
+          font-family: Oswald; /* Adicionado na resposta */
+          background: lightgrey; /* Adicionado na resposta */
+
+        }
+
+        .cabecalho {
+          /* background-color: #000;  */
+          /* font-family: Oswald; */
+          background-color: #333; /* Adicionado na resposta */
+          border-bottom: solid 5px #4FADDB; /* Adicionado na resposta */
+          /* position: relative; */
+          height: 80px; /* Adicionado na resposta */
+          box-sizing: content-box; /* Adicionado na resposta */
+
+        }
+
+        .logo{
+          /* width: 200px; */
+          display: inline-block;
+          /* align-content: space-between; */
+          height: 80px; /* Adicionado na resposta */
+          padding: 15px;
+        }
+
+        .logo img { /* Adicionado na resposta */
+          height: 100%; /* Adicionado na resposta */
+        }
+
+        .menu-toggle {
+          /* display: none; */
+          float: right; /* Adicionado na resposta */
+          color: #eee; /* Adicionado na resposta */
+          background-color: #555; /* Adicionado na resposta */
+          border: solid 1px #777; /* Adicionado na resposta */
+          border-radius: 5px; /* Adicionado na resposta */
+          height: 40px; /* Adicionado na resposta */
+          padding: 10px 20px; /* Adicionado na resposta */
+          margin: 20px 15px; /* Adicionado na resposta */
+        }
+
+        /* @media (max-width: 600px) {
+          .menu-toggle {
+            display: inline-block;
+            position: absolute;
+            right:10px;
+            top:10px;        
+          }
+        } */
+
+        .menu {
+          display: inline-block; /* Adicionado na resposta */
+          vertical-align: top; /* Adicionado na resposta */
+          height: 80px; /* Adicionado na resposta */
+          padding: 25px; /* Adicionado na resposta */
+
+        }
+
+        .menu ul { /* Adicionado na resposta */
+          margin: 0; /* Adicionado na resposta */
+          padding: 0; /* Adicionado na resposta */
+        }
+        .menu li { /* Adicionado na resposta */
+          display: inline-block; /* Adicionado na resposta */
+        }
+
+        .cabecalho a { /* Adicionado na resposta */
+          text-decoration: none; /* Adicionado na resposta */
+          color: #FFF; /* Adicionado na resposta */
+          font-size: 1.1em; /* Adicionado na resposta */
+        }
+        .menu a {
+          padding: 15px; /* Adicionado na resposta */
+        }
+
+        /* .menu ul {
+          display:inline-block;
+          position: absolute;
+          top: 15px;
+          left: 250px;
+        } */
+
+        /* .menu li{
+          display: inline-block;
+          padding: 10px;
+        } */
+
+        .menu a:hover,
+        .menu a.selected {
+          background-color: #4faddb;
+          color: #000;
+        }
+/* 
+        .menu li a {
+          color: #FFF;
+          text-decoration: none;
+        } */
+
+        /* aside.autenticacao {
+          display: inline-block;
+          position: absolute;
+          top: 15px;
+          right: 100px;
+        } */
+
+        .autenticacao {
+          float: right;
+          height: 80px;
+          padding: 25px;
+        }
+        
+        /* .autenticacao a{
+          display: inline-block;
+          color: #FFF;
+          text-decoration: none;
+          padding: 10px;
+        } */
+
+        /* a.destaque  {
+          border-radius: 2em;
+          background: red;
+          margin-left: 5px;
+          padding: 2px 8px;
+        } */
+
+        .botao {
+          border-radius: 30px;
+          padding: 10px 25px;
+          margin: 10px;
+        }
+
+        .destaque {
+          background-color: red;
+          color: #FFF;
+        }
+
+        @media (min-width: 679px) {
+          .menu-toggle {
+            display: none;
+          }
+        }
+
+        @media (max-width: 680px) {
+          .menu {
+            display: none;
+          }
+        }
+
+        @media (max-width: 900px) {
+          .autenticacao{
+            display: none;
+          }
+        }
+
     </style>
 </head>
 
@@ -45,6 +204,14 @@
 
     <script>
         // ...
+        window.onhashchange = function(e) {
+          const oldURL = e.oldURL.split('#')[1]
+          const newURL = e.newURL.split('#')[1]
+          const oldLink = document.querySelector(`.menu a[href='#${oldURL}']`)
+          const neLink = document.querySelector(`.menu a[href='#${newURL}']`)
+          oldLink && oldLink.classList.remove('selected')
+          newLink && newLink.classList.add('selected')
+        }
     </script>
 </body>
 

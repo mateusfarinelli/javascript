@@ -12,6 +12,24 @@
             border: solid 5px;
             display: none;
         }
+        /* A sintaxe para aplicar media query é @media (filtro) { estilização CSS} */
+        /*
+         Midia query é uma padrão para auxiliar na responsividade do seu código HTML
+         Nesse exemplo começamos com o display none, ou seja, não mostranto os elementos
+         html, e ao longo do código quando vamos aplicando o media query caso o filtro aplicado
+         seja satisfeito, e então a estilização é adicionada.
+        */
+        @media (max-width: 600px) {
+          .muito-pequeno { display: block;}
+        }
+        @media (max-width: 1000px), (orientation: portrait) {
+          .pequeno-retrato { display: block}
+        }
+        @media (min-width: 500px) and (max-width: 1000px) {
+          .intervalo {
+            display: block;
+          }
+        }
     </style>
 </head>
 <body>
