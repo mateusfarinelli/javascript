@@ -5,14 +5,17 @@
     <meta charset="UTF-8">
     <title>Desafio Card</title>
     <style>
+        /* Resultado Mateus */
         .curso {
-          box-sizing: border-box;
-          max-width: 280px;
-          max-height: 350px;
+          box-sizing: content-box;
+          max-width: 270px;
+          max-height: 310px;
           border: solid 1px #ccc;
           display: inline-block;
           margin: 10px 20px;
           box-shadow: 5px 5px 7px #BBB;
+          border-collapse: collapse;
+
         }
         .curso img {
           box-sizing: border-box;
@@ -25,25 +28,28 @@
         .curso-info {
           box-sizing: border-box;
           max-height: 100px;
-          font-family: Arial, Helvetica, sans-serif;
+          font-family: Verdana, sans-serif;
           padding: 5px;
-          overflow: hidden;          
+          overflow: hidden;
         }
         .curso-info h4 {
-          min-height: 85px;
-          font-size: 1.5em;
+          font-size: 1.2em;
           margin: 0;
+          min-height: 50px;
           padding: 0 10px;
+ 
         }
         .curso-info p {
+          box-sizing: content-box;
           font-size: 1em;
-          margin: 0;
+          padding: 6px 10px;
+          border-collapse: collapse;
         }
 
         .curso-preco {
           text-align: right;
-          font-family: Arial, Helvetica, sans-serif;
-          margin: 0 15px;
+          font-family: Verdana, sans-serif;
+          margin: 10px 15px;
         }
         .preco-de {
           text-decoration: line-through;
@@ -55,6 +61,55 @@
           color: #006600;
           font-weight: bold;
         }
+
+        /* Resposta do Curso */
+
+        .curso1 {
+          /* float: left; */
+          display: inline-block; /* A estilização fica igual ao float left */
+          vertical-align: top; /* Para tratar caso a imagem não exista */
+          font-family: Verdana, sans-serif;
+          border: solid 1px #CCC;
+          box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.3);
+          height: 300px;
+          width: 260px;
+          margin: 5px 20px;
+          padding: 5px;
+        }
+
+        .curso1 img {
+          width: 100%;
+          max-height: 50%;
+        }
+
+        .curso-info1 {
+          padding: 10px;
+          height: 90px;
+          overflow: hidden;
+        }
+
+        .curso-info1 h4 {
+          font-size: 1.4em;
+          font-weight: 100;
+          margin: 0px;
+        }
+
+        .curso-preco1 {
+          float: right;
+          padding: 10px;
+        }
+
+        .preco-de1 {
+          text-decoration: line-through;
+          color: firebrick;
+        }
+
+        .preco-por1 {
+          color: green;
+          font-weight: bold;
+          font-size: 1.4em;
+        }
+
     </style>
 </head>
 
@@ -64,7 +119,7 @@
     <h2>Objetivo</h2>
     <img src="http://files.cod3r.com.br/curso-web/card.png" height="340" alt="Objetivo">
 
-    <h2>Resultado</h2>
+    <h2>Mateus</h2>
     <div>
         <div class="curso">
             <img src="http://files.cod3r.com.br/curso-web/curso1.jpg" />
@@ -86,6 +141,32 @@
             <div class="curso-preco">
                 <span class="preco-de">R$80,00</span>
                 <span class="preco-por">R$50,00</span>
+            </div>
+        </div>
+    </div>
+
+    <h2>Gabarito</h2>
+    <div>
+        <div class="curso1">
+            <img src="http://files.cod3r.com.br/curso-web/curso1.jpg" />
+            <div class="curso-info1">
+                <h4>Docker: Ferramenta essencial para Desenvolvedores</h4>
+                <p>Prof. Fulano</p>
+            </div>
+            <div class="curso-preco1">
+                <span class="preco-de1">R$80,00</span>
+                <span class="preco-por1">R$50,00</span>
+            </div>
+        </div>
+        <div class="curso1">
+            <img src="http://files.cod3r.com.br/curso-web/curso2.jpg" />
+            <div class="curso-info1">
+                <h4>Web Moderno com Javascript + Projetos</h4>
+                <p>Prof. Sicrano Filho</p>
+            </div>
+            <div class="curso-preco1">
+                <span class="preco-de1">R$80,00</span>
+                <span class="preco-por1">R$50,00</span>
             </div>
         </div>
     </div>
