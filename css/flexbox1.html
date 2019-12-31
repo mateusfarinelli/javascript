@@ -6,7 +6,31 @@
     <title>Flexbox #01</title>
     <link rel="stylesheet" href="css/tag.css">
     <style>
-        /* ... */
+        /* .
+          É sabido que o CSS ve os elementos como caixa. E quando usamos o flex-box, marcando um
+          elemento com o display: flex, o elemento passa a ser um flex container.
+
+          Esse container tem objetivo de agrupar varios itens, e cada um desses itens são chamados de
+          flex-item.
+
+          Um flex-box é uni-direcional, sendo necessario informar a orientação do container,
+          por padrão, a orientação é dada como coluna.
+
+          Quando a orientação é definida, então a direção dela é considerada como main axis (eixo princial)
+          e a outra passa a ser o cross axis (eixo secundario)
+
+          Cada um desses eixos tem os atributos start (inicio), end (fim) e size (tamanho).
+
+          
+        */
+        .big {
+          font-size: 1.5em;
+        }
+
+        .flex-container {
+          display: flex;
+        }
+
     </style>
 </head>
 
