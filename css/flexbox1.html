@@ -24,11 +24,77 @@
           
         */
         .big {
-          font-size: 1.5em;
+          font-size: 1.5em; /* Usado para mostrar como o tamanho da fonte influencia
+                               No alinhamento */
         }
 
         .flex-container {
-          display: flex;
+          display: flex; /* Por padrão o main axis é no sentido da linha (row) */
+          flex-direction: column; /* Insere a propriedade direction no container
+                                     se comentarmos a linha display e essa, veremos
+                                     que a pagina fica formatada da mesma forma
+                                     ou seja, com as divs em formato de coluna */
+          flex-direction: column-reverse; /* Formatando o main axis na direção column e
+                                             invertendo a disposição, nesse caso a div 10
+                                             passa a ficar no topo e a div 1 no fim */
+          flex-direction: row-reverse; /* Agora formatando em linha com reverse, qua além
+                                          de inverter a ordem das divs, irá aplicar um
+                                          alinhamento a direita */
+          flex-direction: row; /* Direção padrão */
+          width: 50%; /* Por padrão o display flex gera um overflow na div, mas podemos
+                         aplicar uma outra propriedade chamada wrap para fazer a quebra
+                         das linhas/colunas para ajustar o overflow. Para isso vamos
+                         primeiro verificar o overflow com a div com largura de 50%
+                         e logo em seguida aplicar a porpriedade wrap.*/
+          flex-wrap: wrap; /* quebrando a linha */
+          flex-wrap: wrap-reverse; /* Invertendo a disposição dos flex-itens*/
+          flex-flow: row wrap; /* Flex-flow é uma propriedade que nos permite casar o
+                                  direction e o wrap de uma só vez, mas pelas pesquisas
+                                  não é muito utilizado */
+          height: 200px; /* Para verificar a quebra de linha na direção de coluna */
+          flex-flow: column-reverse wrap; /* Aplicando a quebra de linha na direção de
+                                             de coluna, se usarmos nowarp iremos ver o
+                                             overflow */
+          flex-flow: row wrap;
+          justify-content: flex-start; /* A propriedade justify-content é utilziada para
+                                          alinhamento do flex-container, podendo ser
+                                          alinhado com relação ao inicio e fim do main axis,
+                                          bem como com relação a direção, ou seja, direita
+                                          esquerda, centro e etc. */
+          justify-content: flex-end; /* Nesse caso vemos um alinhamento ao direita, pois
+                                        estamos usando a direção row sem inversão e por
+                                        padrão nesses casos o start fica a esquerda e o
+                                        end a direita */
+          justify-content: center;
+          justify-content: space-around; /* Utilizando espaços alinhar os flex-itens,
+                                            nesse caso os espaços serão aplicados em volta
+                                            dos itens. */
+          flex-direction: row-reverse; /* Verificando que mesmo ao inverter o sentido o 
+                                          space-around */
+          justify-content: space-between; /* Agora usamos space-btween, ou seja, espaço
+                                             entre os itens, claro que o alinhamento nesse
+                                             caso é igual para todos os itens, mas é possivel
+                                             verificar algumas difrenças dependendo da
+                                             disposição dos itens, entre o between e o around*/
+          
+          /* Alinhando pelo cross Axis */
+          height: 300px;
+          align-items: stretch; /* Para alinhar o cross axis, utilziamos a propriedade
+                                   align-items, o padrão é o stretch, que "estica" os
+                                   flex-items ocupando o maximo possivel da altura do
+                                   container.*/
+          align-items: baseline; /* Alinha pela linha de base da fonte */
+          align-items: flex-start; /* Alinha os itens pelo inicio do cross axis */
+          align-items: flex-end;
+          align-items: center; /* Alinha pela linha e centro da fonte */
+
+          /* mais de uma linha */
+          align-content: flex-start; /* Alinhar todas as linhas em relação ao inicio do
+                                        container */
+          align-content: flex-end;
+          align-content: space-around;
+
+          
         }
 
     </style>

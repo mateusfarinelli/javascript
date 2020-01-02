@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="css/tag.css">
     <style>
         /* ... */
+      .flex-container {
+        display: flex;
+      }
+      .flex-container div {
+        flex-basis: 100px; /* É a forma padrão de determinar o tamanho do flex-item
+                              para a direction padrão (row), o basis dará ao item o tamanho
+                              na largura como se fosse o width, tanto é que se colocarmos
+                              o width junto mesmo com um tamanho mt maior/menor não haverá
+                              mudança pois o basis nesse caso tem preferencia. O mesmo
+                              vale para o direction column entretanto o basis será com rela
+                              ção a altura, e não a largura, logo width em colum funcionará
+                              mas height não */
+      }
+      .flex-container div:nth-child(4) {
+        flex: 3 6 100px; /* É uma propriedade shortcut para grow shrink e basis */
+      }
     </style>
 </head>
 
