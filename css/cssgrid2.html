@@ -20,6 +20,32 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        body {
+          display: grid;
+          /* grid-template-columns: repeat(3, 1fr); */
+          grid-template-columns: [inicio] 1fr /* adicionando titulo as partiçoes */
+            [metade1 meio1] 1fr 
+            [metade2 meio2] 1fr [fim];
+          grid-template-rows: repeat(3, 1fr);
+          column-gap: 20px; /* Adiciona um gap em todas as linhas de coluna
+                               para esse exemplo como há uma grid area somente o gap
+                               entre o "inicio" e "meio1" está aparente, pois o gap entre
+                               "meio2 "e "fim" está dentro da grid-area. */
+          row-gap: 20px; /* O mesmo vale aqui */
+          gap: 100px; /* Shotcurt para row-gap row column, caso seja indicado apenas 1 valor
+                             o mesmo será atribuido tanto para row quanto pra column*/
+        }
+
+        .d1 {
+          grid-column-start: metade2;
+          grid-column-end: fim;
+          grid-column: meio1 / fim; /* Shortcut para column-start / column-end */
+          grid-row: 1 / span 2; /* Shortcut para row-start / row-end */
+          /* Shortcut: row-start / column-start / row-end / column-end */
+          grid-area: 1 / meio1 / span 3 / fim;
+
+        }
     </style>
 </head>
 

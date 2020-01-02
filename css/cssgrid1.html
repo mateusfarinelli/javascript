@@ -22,6 +22,55 @@
             border: solid 5px dodgerblue;
             background: #fff;
         }
+
+        /* Grid é uma tecnlogia nativa do CSS que trabalha a DOM como uma grade (GRID)
+           É uma tecnologia bidimensional, diferente do flex-box que trabalhava apenas uma
+           das orientações (row ou column), aqui podemos trabalhar ambas da maneira que
+           mais for conveniente.
+           Com o Grid, também "ganhamos" o z-index, que diz respeit o sobreposições, e como
+           elas serão manipuladas
+        */
+
+        body {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(4, 1fr);
+          grid-template-columns: 3fr 6fr 3fr;
+          grid-template-rows: 3fr 3fr 3fr 3fr 3fr;
+          /* 
+          repeat é utilizado para quando vamos inserir um mesmo
+          valor de tamanho
+          fr é uma unidade de tamanho que diz respeito ao frame
+          ainda, podemos usar %, px e auto (esse valor distribui igualmente o tamanho total
+          disponivel para a dimensão utilizada);
+          */
+        }
+        .d8 {
+          /* Aqui trabalhouse o tamanho de uma area da grid, no caso do documento a div 8
+          que tem inicio na segunda coluna e final na 4, bem como inicio na 3 linha
+          e final na 5 */
+
+          grid-column-start: 2;
+          grid-column-end: 4;
+          grid-column-end: span 2;
+          grid-row-start: 3;
+          grid-row-end: 5;
+        }
+
+        .d10, .d11 {
+          /* Estudo de sobreposição */
+          grid-column-start: 1;
+          grid-column-end: 3;
+          grid-row-start: 5;
+          grid-row-end: span 1;
+        }
+
+        .d10 { 
+          /* as divs .10 e .11 foram sobrepostas, e com o z-index podemos alterar quem fica
+          sobre quem, bastanto adicionar um valor >= para que a div selcionada fica a frente
+          ou <0 para que ela fique atrás. */
+          z-index: -10;
+        }
     </style>
 </head>
 

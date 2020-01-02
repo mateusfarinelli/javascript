@@ -7,6 +7,51 @@
     <link rel="stylesheet" href="css/tag.css">
     <style>
         /* ... */
+
+        .flex-container {
+          display: flex;
+          width: 600px;
+          height: 300px;
+        }
+        
+        .flex-container div:nth-child(3) {
+          background-color: indianred;
+          order: -1; /* Por padrão todos os elementos tem ordem 0, caso a ordem seja maior
+                       o elemento irá ser mostrado por ultimo, o mesmo vale para valores
+                       menores que 0, e nesse caso será o inverso. */
+          align-self: center; /* A porpriedade align-self é utilziada em apenas um item do
+                                 elemento pai, como trabalhamos agora, e faz com que o mesmo
+                                 seja alinhado da forma com que se deseja*/
+        }
+
+        .flex-container div {
+          width: 100px;  /*Atribuindo largura para o flex-items dentro do container */
+          flex-grow: 0; 
+          flex-grow: 1; /* A propriedade grow, é uma porpriedade utilziada para dizer de
+                           os itens terão seu espaço alocado com base no espaço restante
+                           no container, po padrão o grow do container/item é 0, mas é
+                           possivel modificar essa propriedade. Para entender melhor vamos
+                           supor um container com 200px de largura com 4 itens, logo cada
+                           item com grow 1, teria 50px, pois teriamos 1+1+1+1 = 4 e 
+                           200/4 = 50, agora supomos que para um deles decidimos dar um
+                           peso 2, logo teriamos 1+2+1+1 = 5, e 200/5 = 40, e portanto
+                           3 items teriam tamanho 40 e 1 tamanho 80, se ao invez de 2 colo
+                           cassemos um peso 10, termiamos então 1+10+1+1 = 13 e 200/13 = 
+                           15,4 e portanto 3 itens teriam 15,4px e 1 item teria 154px*/
+        } 
+
+        .flex-container div:nth-child(1){
+          flex-grow: 2;
+        }
+
+        .flex-container {
+          width: 300px;
+          flex-shrink: 1; /* Analogo ao grow mas de forma inversa */
+        }
+
+        .flex-container div:nth-child(1){
+          flex-shrink: 5;
+        }
     </style>
 </head>
 
