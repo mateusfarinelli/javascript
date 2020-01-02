@@ -7,6 +7,59 @@
     <link rel="stylesheet" href="css/tag.css">
     <style>
         /* ... */
+        * {
+          padding: 0;
+          margin: 0;
+        }
+
+        /* Marcando os grid-areas para serem usadas no "grid-template-area" */
+        header {
+          grid-area: header;
+        }
+
+        nav {
+          grid-area: navigation;
+          overflow: hidden;
+        }
+
+        main {
+          grid-area: main;
+        }
+
+        footer {
+          grid-area: footer;
+          
+        }
+        body {
+          display: grid;
+          min-height: 100vh;
+          grid-template-columns: 200px 1fr;
+          grid-template-rows: 100px 1fr 100px;
+          grid-template-areas: /* é preciso tomar cuidado pois defimnimos 2 colunas */
+            'header header'    /* e 3 linhas, então pra cada linha é preciso indicar */
+            'navigation main'  /* qual grid-area vai ser utilziada em cada coluna */
+            'footer footer';
+        }
+
+        @media (max-width: 700px) {
+          body{
+            grid-template-columns: 1fr;
+            grid-template-rows: /* 80px */ 80px 1fr 100px;
+            grid-template-areas:
+            /* 'header'  O cuiado citado acima deve valer para cá também */
+            'navigation' /* Se quisermos remover uma das linhas, basta excluir dentro de */
+            'main'       /* grid-template-rows a linha respectiva e depois remove-la do */
+            'footer';    /* grid-template-areas, por exemplo se removermos o header */
+                         /* é necessario remover o primeiro "80px" de grid-template rows, */ 
+                         /* depois o "header" de grid-template-areas e por fim colocar um */
+                         /* header { display: none } para que ele não apareça e não quebre */
+                         /* a aparencia da aplicação */
+          }
+          
+          header { display: none; }
+
+        }
+
     </style>
 </head>
 
