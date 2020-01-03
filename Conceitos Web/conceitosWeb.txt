@@ -1,0 +1,61 @@
+Time Line
+  1950 -> computador eletronico
+  1960 -> ARPANET
+  1970 -> TCP/IP
+  1980 -> "WWW"
+  1990 -> Internet no Brasil
+  2000 -> iG, Redes Sociais
+
+Topologias
+  Centralizada
+  Distribuida
+  Web(teia)
+
+TCP/IP
+  TCP -> Orientado a conexão e confiavel
+  IP -> 
+
+  Camadas TCP/IP -> Aplicação -> Transporte -> Internet -> Rede Física
+                 -> Padão de projeto Layers
+  
+  Protocolo HTTP
+    Hyper Text Transfer Protocol
+    Faz parte da camada de aplicação da camada TCP/IP
+    Protocolo Stateless, ou seja, qualquer requisião é encarada como a primeira, não há
+    um estado que armazena se a requizição é a primeira ou a nzima
+    Cliente-servidor, fortemente baseado em requisição-reposta.
+
+  Fluxo base do HTTP
+    1. Usuario informa a URL
+    2. Broser gera a requisição
+    3. Servidor gera a resposta
+    4. Broser renderiza a página
+
+  Metodos HTTP
+    GET
+    POST
+    PUT
+    DELETE
+    TRACE
+    OPTIONS
+    CONNECT
+    HEAD
+  
+  Requisição e Resposta
+    Cliente (URL + Params) -> Servidor
+    Servidor (HTML, JS, CSS, Arquivos) -> Cliente
+
+  Requisição via GET
+    URL + Params -> um corpo de uma requisição geralmente é dado por
+      http://urlexemplo.com.br/diretorio?parametro=valor&parametro=valor
+
+      Onde a primeira parte até o simbolo de interrogação "?" é a URL, o "?" é um divisor
+      de URL e Parametros e em seguida vem os parametros, de modo em que temos uma chave=valor
+      e caso seja necessario adicionar mais de um parametros usamos o "&"
+
+  Grupos de Status HTTP
+    1XX - Informação
+    2XX - Sucesso
+    3XX - Redirecionamento
+    4XX - Erro no Cliente
+    5XX - Erro no Servidor
