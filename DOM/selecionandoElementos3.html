@@ -32,6 +32,14 @@
     </form>
     <script>
         // ...
+        console.log(document.forms) // Acessando o elemento do tipo form do documento, com retorno em HMTLColection
+        console.log(document.forms[0]) // Acessando o elemento do tipo form do documento, com retorno em array
+        console.log(document.getElementsByTagName('pesquisa')); // Acessando elemento da DOM utilizando o metodo de get pelo atributo name
+        console.log(document.pesquisa) // Acessando o elemento da DOM pelo nome, no caso 'pesquisa'
+        console.log(document.pesquisa.q) // Acessando o elemento da DOM pelo nome, no caso 'q' dentro do elemento de nome 'pesquisa'
+        document.pesquisa.q.value = 'Linux brasil' // Atribuindo valor de um elemento da DOM, acessado pelo nome
+        console.log(document.pesquisa.q.value) 
+        document.pesquisa.hl.value = 'pt-br'
     </script>
 </body>
 
