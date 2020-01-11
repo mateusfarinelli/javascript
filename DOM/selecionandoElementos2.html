@@ -7,10 +7,46 @@
 </head>
 <body class="conteudo exercicio">
     <div id="primeiro">#primeiro</div>
-    <div>Segundo</div>
+    <div wb-attrib>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
     <script>              
-        // ...
+        // queryselector e queryslectorall, lembra JQuery para selecioanr os elementos da DOM
+        // É um metodo que espera um seletor CSS, então torna-se muito mais flexivel, podendo
+        // selecionar um elemento por ID, Class, por tag, atributo, elementos dentro de outro,
+        // determinados atributos,elementos que não apresentam determianda classe e etc.
+        document.querySelector('#primeiro').classList.add('destaque'); //adiciona a class destaque ao elemento da DOM selecionado
+
+        // vamos trabalhar varias vezes então criaremos uma função que receberá como parametro um seletor, e esse seletor
+        // tera adicionado a classe destaque, faremos uma função inversa onde iremos remover a classe do seletor passado
+
+        const selecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'));
+        // é importante salientar que o metodo querySelectorAll retorna um nodeList, diferente do selectByID e etc 
+        // que retornavam um colection, portanto o objeto NodeList permite a função forEach, entretanto não permite
+        // os metodos map, reduce e etc, precisando ser transformada em um array.
+
+        const deselecionar = seletor =>
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'));
+
+        selecionar('div'); //Os elementos selecionados tem a classe 'destaque' adicionada
+        deselecionar('div'); //Os elementos selecionados tem a classe 'destaque' removida
+
+        selecionar('.terceiro.ultimo'); //Seleciona tudo que as classes terceiro e ultimo e aplica a classe destaque
+        deselecionar('*');
+
+        selecionar(':not(#primeiro)'); //Seleciona tudo que nao tem id #primeiro e aplica a classe destaque
+        deselecionar('*');
+
+        selecionar(':nth-child(1)');
+        deselecionar('*');
+
+        selecionar('div:nth-of-type(1)');
+        deselecionar('*');
+
+        selecionar('span:nth-of-type(1)');
+        deselecionar('*');
+
+        selecionar('[wb-attrib]');
     </script>
 </body>
 </html>

@@ -10,7 +10,25 @@
     <div>Segundo</div>
     <div class="terceiro ultimo">.terceiro .ultimo</div>
     <script>              
-        // ...
+        //getElementById('id') não precisa do cerquilha(#) nesse caso, acessa os elementos da DOM
+        //que contenham o ID passado no pametro
+        //classList.add('classe') é um metodo para adicionar uma classe ao elemento da DOM
+        document.getElementById('primeiro').classList.add('destaque'); //inserindo a classe destaque no elemento selecionado
+
+        //getElementsByTagName('tagName'), seleciona todas as tags com o nome passado no parametro
+        //classList.remove('classe') remove as classes do elemento da DOM selecionado.
+        const divs = document.getElementsByTagName('div') //Retorna um colection, precisando ser tratado como array
+        Array.from(divs).forEach(e => e.classList.remove('destaque')); //removendo a classe destaque de todos os elementos selecionados
+        //Outro modo de percorrer a colection é usando o operador spread
+        const divsArray = [...divs];
+        divsArray.forEach(e => e.classList.add('destaque')); //inserindo a classe destaque em todos os elementos selecionados
+
+        //getElementsByClassName('className'), seleciona todas as tags com a className passada pelo parametro
+        const ultimosElementos = document.getElementsByClassName('ultimo'); //selecionado elementos da DOM com classe "ultimo"
+        for (let e of ultimosElementos) {
+            e.classList.remove('destaque') //removendo a classe destaque dos elementos selecionados
+        };
+
     </script>
 </body>
 </html>
