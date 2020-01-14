@@ -66,12 +66,12 @@ function pairOfBarrier(height, passageSize, xPosition) {
 
  // Now we start to animate the game, beginning with the barriers
  // A below function will create four pairs of barriers containing a fixed interval btween
- function Barriers(height, passageSize, width, interval, notifyScore) {
+ function Barriers(heightGame, passageSize, widthGame, interval, notifyScore) {
    this.pairs = [
-     new pairOfBarrier(height, passageSize, width),
-     new pairOfBarrier(height, passageSize, width + interval),
-     new pairOfBarrier(height, passageSize, width + interval * 2),
-     new pairOfBarrier(height, passageSize, width + interval * 3) 
+     new pairOfBarrier(heightGame, passageSize, widthGame),
+     new pairOfBarrier(heightGame, passageSize, widthGame + interval),
+     new pairOfBarrier(heightGame, passageSize, widthGame + interval * 2),
+     new pairOfBarrier(heightGame, passageSize, widthGame + interval * 3) 
    ]
 
 
@@ -89,8 +89,8 @@ function pairOfBarrier(height, passageSize, xPosition) {
         pair.drawPassagePosition()
       }
 
-      const mid = width / 2
-      const crossMid = pair.getXPosition() + xDisplacement >= mid && pair.getXPosition < mid
+      const mid = widthGame / 2
+      const crossMid = pair.getXPosition() + xDisplacement >= mid && pair.getXPosition() < mid
       if (crossMid) {
         notifyScore()
       }
@@ -98,10 +98,105 @@ function pairOfBarrier(height, passageSize, xPosition) {
    }
  }
 
- // Testing the animate of barriers
- const barriers = new Barriers(700, 200, 1200, 400)
- const gameArea = document.querySelector('[wm-flappy]')
- barriers.pairs.forEach(pair => gameArea.appendChild(pair.element))
- setInterval(() => {
-   barriers.animate()
- }, 20)
+function Bird (heightGame) {
+  let flying = false
+
+  this.element = newElement('img', 'bird')
+  this.element.src = 'imgs/bird.png'
+
+  this.getYPosition = () => parseInt(this.element.style.bottom.split('px')[0])
+  this.setYPosition = y => this.element.style.bottom = `${y}px`
+
+  window.onkeydown = e => flying = true
+  window.onkeyup = e => flying = false
+
+  this.animateBird = () => {
+    const newYPosition = this.getYPosition() + (flying ? 8 : -5)
+    const birdHeightMax = heightGame - this.element.clientHeight
+
+    if (newYPosition <= 0) {
+      this.setYPosition(0)
+    }
+    else if (newYPosition >= birdHeightMax) {
+      this.setYPosition(birdHeightMax)
+    }
+    else {
+      this.setYPosition(newYPosition)
+    }
+  }
+
+  this.setYPosition(heightGame / 2)
+}
+
+function Score() {
+  this.element = newElement('span', 'score');
+  this.attScore = score => {
+     this.element.innerHTML = score
+    }
+    this.attScore(0)
+  }
+
+// // Testing the animate of barriers
+// const bird = new Bird(700)
+// const gameArea = document.querySelector('[wm-flappy]')
+// const barriers = new Barriers(700, 200, 1200, 400)
+
+// gameArea.appendChild(bird.element)
+// gameArea.appendChild(new Score().element)
+// barriers.pairs.forEach(pair => gameArea.appendChild(pair.element))
+// setInterval(() => {
+//   barriers.animate()
+//   bird.animateBird()
+//     }, 20)
+
+
+function checkOverlapping (aElement, bElement) {
+  const a = aElement.getBoundingClientRect()
+  const b = bElement.getBoundingClientRect()
+
+  const horizontal = a.left + a.width >= b.left && b.left + b.width >= a.left
+  const vertical = a.top + a.height >= b.top && b.top + b.height >= a.top
+
+  return horizontal && vertical
+}
+function checkCollision(bird, barriers) {
+  let collision = false
+
+  barriers.pairs.forEach(pairOfBarrier => {
+    if (!collision) {
+      const upper = pairOfBarrier.upper.element
+      const lower = pairOfBarrier.lower.element
+      collision = checkOverlapping(bird.element, upper) || checkOverlapping(bird.element, lower)
+    }
+  })
+  return collision
+}
+
+function FlappyBird() {
+  let score = 0
+
+  const gameArea = document.querySelector('[wm-flappy]')
+  const gameHeight = gameArea.clientHeight
+  const gameWidth = gameArea.clientWidth
+
+  const scoreScreen = new Score()
+  const barriers = new Barriers(gameHeight, 200,  gameWidth, 400, () => scoreScreen.attScore(++score))
+  const bird = new Bird(gameHeight)
+
+  gameArea.appendChild(scoreScreen.element)
+  gameArea.appendChild(bird.element)
+  barriers.pairs.forEach(pair => gameArea.appendChild(pair.element))
+
+  this.start = () => {
+    const timer = setInterval(() => {
+      barriers.animate()
+      bird.animateBird()
+
+      if (checkCollision(bird, barriers)) {
+        clearInterval(timer)
+      }
+    }, 20)
+  }
+}
+
+new FlappyBird().start()
